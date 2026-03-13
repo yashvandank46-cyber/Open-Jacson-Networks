@@ -18,10 +18,77 @@ Visual components and Python
 
 ## Experiment:
 
+<img width="881" height="521" alt="image" src="https://github.com/user-attachments/assets/9dcb169f-0af3-4ed5-9823-ba695ec09864" />
 
-## Program
+<img width="884" height="523" alt="image" src="https://github.com/user-attachments/assets/8a54e31e-0c6c-466d-9280-3be8cb2e65e5" />
 
 
-## Output
+## Program:
+```
+Name : YASHVANDAN K
+reg no: 212225100060
+slot:T1-I5
 
-## Result
+import math
+
+# Getting Inputs
+ArrivalTime = float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
+ServiceTime1 = float(input("Enter the mean inter service time of Lathe Machine 1 (in secs): "))
+ServiceTime2 = float(input("Enter the mean inter service time of Lathe Machine 2 (in secs): "))
+ServiceTime3 = float(input("Enter the mean inter service time of Lathe Machine 3 (in secs): "))
+RobotTime = float(input("Enter the Additional time taken for the Robot (in secs): "))
+
+# Calculating Lambda and Mu for each server
+Lambda = 1 / ArrivalTime
+Mu1 = 1 / (ServiceTime1 + RobotTime)
+Mu2 = 1 / (ServiceTime2 + RobotTime)
+Mu3 = 1 / (ServiceTime3 + RobotTime)
+
+print("Series Queues with Infinite Capacity - Open Jackson Network")
+print("The mean arrival rate per second               : %0.2f" % Lambda)
+print("The mean service rate per second of Lathe 1    : %0.2f" % Mu1)
+print("The mean service rate per second of Lathe 2    : %0.2f" % Mu2)
+print("The mean service rate per second of Lathe 3    : %0.2f" % Mu3)
+
+# Check for stability condition
+if (Lambda < Mu1) and (Lambda < Mu2) and (Lambda < Mu3):
+    # Calculating performance metrics for each server
+    Ls1 = Lambda / (Mu1 - Lambda)
+    Ls2 = Lambda / (Mu2 - Lambda)
+    Ls3 = Lambda / (Mu3 - Lambda)
+
+    Ls = Ls1 + Ls2 + Ls3  # Total number in system
+
+    Lq1 = Ls1 - Lambda / Mu1
+    Lq2 = Ls2 - Lambda / Mu2
+    Lq3 = Ls3 - Lambda / Mu3
+
+    Wq1 = Lq1 / Lambda
+    Wq2 = Lq2 / Lambda
+    Wq3 = Lq3 / Lambda
+
+    Ws = Ls / (3 * Lambda)
+
+    # Output
+    print("Average number of objects in the system S1     : %0.2f" % Ls1)
+    print("Average number of objects in the system S2     : %0.2f" % Ls2)
+    print("Average number of objects in the system S3     : %0.2f" % Ls3)
+    print("Average number of objects in the overall system: %0.2f" % Ls)
+    print("Average number of objects in the conveyor S1   : %0.2f" % Lq1)
+    print("Average number of objects in the conveyor S2   : %0.2f" % Lq2)
+    print("Average number of objects in the conveyor S3   : %0.2f" % Lq3)
+    print("Average waiting time of an object in conveyor S1: %0.2f secs" % Wq1)
+    print("Average waiting time of an object in conveyor S2: %0.2f secs" % Wq2)
+    print("Average waiting time of an object in conveyor S3: %0.2f secs" % Wq3)
+else:
+    print("Warning! Objects Overflow will happen in the conveyor")
+```
+
+## Output:
+
+<img width="736" height="411" alt="image" src="https://github.com/user-attachments/assets/e3350346-6706-4345-84f8-62281b961410" />
+
+
+## Result:
+
+The average number of material in the sysytem and in the conveyor and waiting time are successfully found.
