@@ -16,13 +16,6 @@ Visual components and Python
 ![image](https://user-images.githubusercontent.com/103921593/203239789-bc870dce-6727-487b-a0e2-4fc3f5114889.png)
 
 
-## Experiment:
-
-<img width="881" height="521" alt="image" src="https://github.com/user-attachments/assets/9dcb169f-0af3-4ed5-9823-ba695ec09864" />
-
-<img width="884" height="523" alt="image" src="https://github.com/user-attachments/assets/8a54e31e-0c6c-466d-9280-3be8cb2e65e5" />
-
-
 ## Program:
 ```
 Name : YASHVANDAN K
